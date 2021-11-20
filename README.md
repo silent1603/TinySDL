@@ -2,7 +2,7 @@
 ## Getting Started
 Clone the repo with the `--recurse-submodules` flag
 ```bash
-git clone --recurse-submodules https://github.com/miredirex/cmake-vcpkg-example.git
+git clone --recurse-submodules https://github.com/silent1603/TinySDL.git
 ```  
 
 Run `./vcpkg/bootstrap-vcpkg.sh` or `.\vcpkg\bootstrap-vcpkg.bat`
