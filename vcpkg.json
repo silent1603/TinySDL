@@ -1,0 +1,24 @@
+{
+  "name": "tinysdl",
+  "version-string": "0.1.0",
+  "dependencies": [
+    "imguizmo",
+    "sdl2",
+    "sdl2-image",
+    "sdl2-mixer",
+    "sdl2-ttf",
+    "catch2",
+    "spdlog",
+    {
+      "name" : "imgui",
+      "features" : ["docking-experimental","sdl2-binding","opengl3-binding"]
+    },
+    "glad",
+    "entt",
+    "box2d",
+    "lua",
+    "nlohmann-json",
+    "asio",
+    "glm"  
+   ]
+}
