@@ -33,8 +33,6 @@ if (MSVC)
   MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
   MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
   endif()
-  message(STATUS "HAVE VCPKG OK!!!!!!!!!")
-  
 elseif(UNIX)
   if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg")
     MESSAGE(STATUS "INSTALL VCPKG")
@@ -44,7 +42,6 @@ elseif(UNIX)
     MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
     MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
   endif()
-  message(STATUS "HAVE VCPKG OK!!!!!!!!!")
 endif()
 
 
