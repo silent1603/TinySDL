@@ -25,10 +25,18 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
 endif()
 
 if (MSVC)
-    # warning level 4 and all warnings as errors
-    add_compile_options(/W4 /WX)
-else()
-   # add_custom_command(COMMAND pkg-config --static --libs x11 xrandr xi xxf86vm )
+   
+  
+elseif(UNIX AND NOT APPLE)
+  if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg")
+    MESSAGE(STATUS "INSTALL VCPKG")
+    execute_process(COMMAND "./vcpkg/bootstrap-vcpkg.sh"
+    RESULT_VARIABLE CMD_ERROR
+    OUTPUT_FILE CMD_OUTPUT)
+    MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
+    MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
+  endif()
+  message(STATUS "HAVE VCPKG OK!!!!!!!!!")
 endif()
 
 
@@ -77,5 +85,5 @@ if (MSVC)
     # warning level 4 and all warnings as errors
     
 elseif(UNIX AND NOT APPLE)
-  target_link_libraries(TinySDL PRIVATE X11 Xext)
+  target_link_libraries(TinySDL PRIVATE X11 X11-xcb Xext xcb xkbcommon)
 endif()
