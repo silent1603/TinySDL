@@ -11,7 +11,6 @@
 #include <SDL2/SDL_ttf.h>
 // C++
 #include <vector>
-#include <glad/glad.h>
 // Dear ImGui
 #include <imgui_impl_sdl.h>
 #include <imgui_impl_opengl3.h>

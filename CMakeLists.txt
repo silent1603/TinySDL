@@ -103,7 +103,7 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2::SDL2-stati
                                         PRIVATE glad::glad
                                         PRIVATE imgui::imgui 
                                         PRIVATE imguizmo::imguizmo 
-                                        PRIVATE nlohmann_json
+                                        PRIVATE nlohmann_json nlohmann_json::nlohmann_json
                                         PRIVATE SDL2::SDL2_image 
                                         PRIVATE SDL2::SDL2_mixer 
                                         PRIVATE SDL2::SDL2_ttf 
@@ -115,7 +115,7 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2::SDL2-stati
 if (MSVC)
     
 elseif(UNIX AND NOT APPLE)
-  target_link_libraries(TinySDL PRIVATE X11 X11-xcb Xext xcb xkbcommon)
+  target_link_libraries(TinySDL PRIVATE X11 X11-xcb Xext xcb xkbcommon GL udev Xrandr)
 endif()
 
 add_custom_command(TARGET TinySDL POST_BUILD 
@@ -132,30 +132,3 @@ set_target_properties(TinySDL PROPERTIES
            RUNTIME_OUTPUT_DIRECTORY_DEBUG "${RELEASE_PATH}" 
            RUNTIME_OUTPUT_DIRECTORY_RELEASE "${RELEASE_PATH}" 
 )
-
-# set_target_properties(TinySDL 
-#                       SDL2 
-#                       SDL2main 
-#                       SDL2-static 
-#                       asio 
-#                       box2d 
-#                       Catch2 
-#                       Catch2WithMain 
-#                       EnTT 
-#                       glad 
-#                       imgui 
-#                       imguizmo 
-#                       nlohmann_json 
-#                       SDL2_image 
-#                       SDL2_mixer 
-#                       SDL2_ttf 
-#                       spdlog 
-#                       glm 
-#                       ${LUA_LIBRARIES} 
-
-# PROPERTIES
-#            ARCHIVE_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
-#            LIBRARY_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/lib"
-#            RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}" 
-#            RUNTIME_OUTPUT_DIRECTORY_RELEASE "${PROJECT_SOURCE_DIR}" 
-# )
