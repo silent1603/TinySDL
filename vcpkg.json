@@ -11,7 +11,7 @@
     "spdlog",
     {
       "name" : "imgui",
-      "features" : ["docking-experimental","sdl2-binding","opengl3-binding","sdl2-renderer-binding"]
+      "features" : ["docking-experimental","sdl2-binding","opengl3-binding"]
     },
     "glad",
     "entt",
@@ -20,6 +20,7 @@
     "nlohmann-json",
     "asio",
     "glm",
-    "stb"  
+    "stb",
+    "fmt"  
    ]
 }

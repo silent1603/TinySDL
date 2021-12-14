@@ -62,8 +62,8 @@ find_package(sdl2-ttf CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(Lua REQUIRED)
 find_package(glm CONFIG REQUIRED)
+find_package(fmt CONFIG REQUIRED)
 find_path(STB_INCLUDE_DIRS "stb.h")
-
 #message(STATUS ${SDL2_DIR})
 #message(STATUS ${asio_DIR})
 
@@ -91,8 +91,6 @@ add_executable(TinySDL ${PROJECT_HEADERS} ${PROJECT_SOURCES} ${PROJECT_SHADERS} 
 
 set_property(TARGET TinySDL PROPERTY CXX_STANDARD 11)
 
-
-
 target_include_directories(TinySDL PRIVATE ${LUA_INCLUDE_DIR})
 target_include_directories(TinySDL PRIVATE ${STB_INCLUDE_DIRS}) 
 
@@ -110,7 +108,8 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2::SDL2-stati
                                         PRIVATE SDL2::SDL2_ttf 
                                         PRIVATE spdlog::spdlog spdlog::spdlog_header_only 
                                         PRIVATE glm::glm 
-                                        PRIVATE ${LUA_LIBRARIES}  
+                                        PRIVATE fmt::fmt 
+                                        PRIVATE ${LUA_LIBRARIES} 
 )
 
 if (MSVC)
