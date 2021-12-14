@@ -4,7 +4,7 @@ if [ ! -d "./build" ]; then
     mkdir build
 fi
 cd build 
-cmake ..
+cmake .. 
 make
 cd ..
 bash ./run.sh

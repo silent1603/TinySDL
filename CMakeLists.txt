@@ -31,14 +31,15 @@ if (MSVC)
   RESULT_VARIABLE CMD_ERROR
   OUTPUT_FILE CMD_OUTPUT)
   MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
-  MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
+  MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT}) 
   endif()
 elseif(UNIX)
   if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg")
     MESSAGE(STATUS "INSTALL VCPKG")
-    execute_process(COMMAND "./vcpkg/bootstrap-vcpkg.sh"
-    RESULT_VARIABLE CMD_ERROR
-    OUTPUT_FILE CMD_OUTPUT)
+    execute_process(COMMAND  "cd ./vcpkg && git pull"
+    COMMAND  "./vcpkg/bootstrap-vcpkg.sh"
+                    RESULT_VARIABLE CMD_ERROR
+                    OUTPUT_FILE CMD_OUTPUT)
     MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
     MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
   endif()
