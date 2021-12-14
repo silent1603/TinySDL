@@ -65,7 +65,7 @@ find_package(glm CONFIG REQUIRED)
 find_path(STB_INCLUDE_DIRS "stb.h")
 
 #message(STATUS ${SDL2_DIR})
-message(STATUS ${asio_DIR})
+#message(STATUS ${asio_DIR})
 
 set(PROJECT_PATH ${CMAKE_SOURCE_DIR}/tinysdl)
 set(SRC_PATH ${PROJECT_PATH}/src)
@@ -79,6 +79,7 @@ file(GLOB_RECURSE PROJECT_RESOURCES ${RESOURCE_PATH}/*.*)
 file(GLOB PROJECT_CONFIGS CMakeLists.txt Readme.md .gitattributes .gitignore .gitmodules LICENSE)
 
 add_subdirectory(tinysdl)
+
 
 source_group(TREE ${PROJECT_PATH} FILES ${PROJECT_SHADERS})
 source_group(TREE ${PROJECT_PATH} FILES ${PROJECT_SOURCES})
