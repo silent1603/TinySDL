@@ -1,49 +1,50 @@
 cmake_minimum_required(VERSION 3.13)
 
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
-CACHE STRING "Vcpkg toolchain file")
-
 project(TinySDL)
 
 find_package(Git QUIET)
 if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
 # Update submodules as needed
-    option(GIT_SUBMODULE "Check submodules during build" ON)
-    if(GIT_SUBMODULE)
-        message(STATUS "Submodule update")
-    execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
-                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-                    RESULT_VARIABLE GIT_SUBMOD_RESULT)
-        if(NOT GIT_SUBMOD_RESULT EQUAL "0")
-        message(FATAL_ERROR "git submodule update --init --recursive failed with ${GIT_SUBMOD_RESULT}, please checkout submodules")
-        endif()
-    endif()
+option(GIT_SUBMODULE "Check submodules during build" ON)
+if(GIT_SUBMODULE)
+message(STATUS "Submodule update")
+execute_process(COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+RESULT_VARIABLE GIT_SUBMOD_RESULT)
+if(NOT GIT_SUBMOD_RESULT EQUAL "0")
+message(FATAL_ERROR "git submodule update --init --recursive failed with ${GIT_SUBMOD_RESULT}, please checkout submodules")
 endif()
- 
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
-    message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
+endif()
 endif()
 
-if (MSVC)
-  if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg.exe")
-  MESSAGE(STATUS "INSTALL VCPKG")
-  execute_process(COMMAND "./vcpkg/bootstrap-vcpkg.bat"
-  RESULT_VARIABLE CMD_ERROR
-  OUTPUT_FILE CMD_OUTPUT)
-  MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
-  MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT}) 
-  endif()
-elseif(UNIX)
-  if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg")
-    MESSAGE(STATUS "INSTALL VCPKG")
-    execute_process(COMMAND  "cd ./vcpkg && git pull"
-    COMMAND  "./vcpkg/bootstrap-vcpkg.sh"
-                    RESULT_VARIABLE CMD_ERROR
-                    OUTPUT_FILE CMD_OUTPUT)
-    MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
-    MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
-  endif()
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
+message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
+
+
+if (MSVC)
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg.exe")
+MESSAGE(STATUS "INSTALL VCPKG")
+execute_process(COMMAND "./vcpkg/bootstrap-vcpkg.bat"
+RESULT_VARIABLE CMD_ERROR
+OUTPUT_FILE CMD_OUTPUT)
+MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
+MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT}) 
+endif()
+elseif(UNIX)
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg")
+MESSAGE(STATUS "INSTALL VCPKG")
+execute_process(COMMAND  "cd ./vcpkg && git pull"
+COMMAND  "./vcpkg/bootstrap-vcpkg.sh"
+RESULT_VARIABLE CMD_ERROR
+OUTPUT_FILE CMD_OUTPUT)
+MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
+MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
+endif()
+endif()
+
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
+CACHE STRING "Vcpkg toolchain file")
 
 set(RELEASE_PATH "${PROJECT_SOURCE_DIR}/release")
 set(DEBUG_PATH "${PROJECT_SOURCE_DIR}/debug")
