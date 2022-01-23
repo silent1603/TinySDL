@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
+
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
 
 project(TinySDL)
@@ -22,11 +23,11 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg")
 message(FATAL_ERROR "The submodules were not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 
-
 if (MSVC) 
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg.exe") 
 MESSAGE(STATUS "INSTALL VCPKG in WINDOW") 
 execute_process(COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.bat" 
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} 
 RESULT_VARIABLE CMD_ERROR 
 OUTPUT_FILE CMD_OUTPUT) 
 MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
@@ -35,14 +36,15 @@ endif()
 elseif(UNIX)
 if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg") 
 MESSAGE(STATUS "INSTALL VCPKG IN LINUX") 
-execute_process(COMMAND  "cd ./vcpkg "
-COMMAND  "./bootstrap-vcpkg.sh"
+execute_process(COMMAND  "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/bootstrap-vcpkg.sh" 
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} 
 RESULT_VARIABLE CMD_ERROR
 OUTPUT_FILE CMD_OUTPUT)
 MESSAGE( STATUS "CMD_ERROR:" ${CMD_ERROR})
 MESSAGE( STATUS "CMD_OUTPUT:" ${CMD_OUTPUT})
 endif()
 endif()
+
 
 
 set(RELEASE_PATH "${PROJECT_SOURCE_DIR}/release")
