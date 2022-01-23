@@ -1,9 +1,16 @@
 {
   "name": "tinysdl",
-  "version-string": "0.1.0",
+  "version-string": "0.1. 0",
   "dependencies": [
     "imguizmo",
     "sdl2",
+    {
+      "name": "sdl2",
+      "default-features": false,
+      "features": [ "x11" ],
+      "platform": "linux"
+    },
+
     "sdl2-image",
     "sdl2-mixer",
     "sdl2-ttf",
