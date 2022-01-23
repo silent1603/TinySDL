@@ -17,10 +17,10 @@ set_property(TARGET ${ProjectId} PROPERTY CXX_STANDARD 11)
 target_include_directories(${ProjectId} PRIVATE ${LUA_INCLUDE_DIR})
 target_include_directories(${ProjectId} PRIVATE ${STB_INCLUDE_DIRS}) 
 
-target_link_libraries(${ProjectId} PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2::SDL2-static 
+target_link_libraries(${ProjectId} PRIVATE SDL2::SDL2 SDL2::SDL2main 
                                         PRIVATE asio asio::asio 
                                         PRIVATE box2d::box2d 
-                                        PRIVATE Catch2::Catch2 Catch2::Catch2WithMain 
+                                        PRIVATE Catch2::Catch2  
                                         PRIVATE EnTT::EnTT 
                                         PRIVATE glad::glad
                                         PRIVATE imgui::imgui 
