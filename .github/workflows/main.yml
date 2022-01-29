@@ -38,7 +38,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: run shell script
         run: |
-         sudo apt install -y libx11-dev libxft-dev libxext-dev base mesa-utils
+         sudo apt install -y libx11-dev libxft-dev libxext-dev base mesa-utils libx11-xcb-dev libx11-xcb-dev xcb libxkbcommon-dev udev lxrandr libxext-dev
          bash ./build.sh
 
   #build_MacOs:
