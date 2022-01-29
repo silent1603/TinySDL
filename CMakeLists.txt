@@ -76,7 +76,7 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main
 if (MSVC)
     
 elseif(UNIX AND NOT APPLE)
-  target_link_libraries(TinySDL PRIVATE X11 X11-xcb Xext xcb xkbcommon GL udev Xrandr  SDL2::SDL2-static Catch2::Catch2WithMain)
+  target_link_libraries(TinySDL PRIVATE SDL2::SDL2-static Catch2::Catch2WithMain)
 endif()
 
 add_custom_command(TARGET TinySDL POST_BUILD 

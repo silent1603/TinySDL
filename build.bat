@@ -10,3 +10,4 @@ IF NOT EXIST vcpkg/vcpkg.exe (
 cd build 
 cmake ..
 cd ..
+pause
