@@ -47,5 +47,6 @@ jobs:
       steps: 
        - uses: actions/checkout@v2
        - name: run batch scripts
+         shell: cmd
          run: build.bat
                               
