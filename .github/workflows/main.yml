@@ -47,7 +47,13 @@ jobs:
       runs-on: windows-latest
       steps: 
        - uses: actions/checkout@v2
+       - name: setup-msbuild
+         uses: microsoft/setup-msbuild@v1.1
        - name: run batch scripts
          shell: cmd
-         run: build.bat
+         run: |
+          build.bat
+          cd build
+          msbuild TinySDL.sln
+         
                               
