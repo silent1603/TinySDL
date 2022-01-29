@@ -37,7 +37,8 @@ target_link_libraries(${ProjectId} PRIVATE SDL2::SDL2 SDL2::SDL2main
 if (MSVC)
     
 elseif(UNIX AND NOT APPLE)
-  target_link_libraries(${ProjectId} PRIVATE X11 X11-xcb Xext xcb xkbcommon SDL2::SDL2-static Catch2::Catch2WithMain)
+  target_link_libraries(${ProjectId} PRIVATE  SDL2::SDL2-static Catch2::Catch2WithMain)
+   #target_link_libraries(${ProjectId} PRIVATE X11 X11-xcb Xext xcb xkbcommon SDL2::SDL2-static Catch2::Catch2WithMai)
 endif()
 
 set_target_properties(${ProjectId} PROPERTIES 
