@@ -53,6 +53,9 @@ jobs:
          shell: cmd
          run: |
           build.bat
+       - name: build
+         shell: cmd
+         run: |
           cd build
           msbuild TinySDL.sln
          
