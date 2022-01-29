@@ -14,4 +14,3 @@ cd build
 cmake .. 
 make
 cd ..
-bash ./run.sh
