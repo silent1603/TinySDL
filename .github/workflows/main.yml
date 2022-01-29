@@ -19,6 +19,7 @@ jobs:
   update_Submodule:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: auto update submodule
         run: |
          git submodule update --remote --merge 
