@@ -39,10 +39,24 @@ jobs:
       - name: run shell script
         run: |
          sudo apt-get update
-         sudo apt install -y libx11-dev  libxext-dev base libglu1-mesa-dev freeglut3-dev mesa-common-dev libx11-xcb-dev libxkbcommon-dev libudev-dev libxrandr-dev libxext-dev
+         sudo apt install -y libx11-dev  libxext-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev libx11-xcb-dev libxkbcommon-dev libudev-dev libxrandr-dev libxext-dev
          bash ./build.sh
 
-  #build_MacOs:
+  build_MacOs:
+     runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: run shell script
+        run: |
+         brew update
+         brew install -y libx11-dev  libxext-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev libx11-xcb-dev libxkbcommon-dev libudev-dev libxrandr-dev libxext-dev
+         bash ./build.sh
+         
   build_Window:
       runs-on: windows-latest
       steps: 
