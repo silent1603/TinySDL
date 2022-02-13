@@ -1,7 +1,7 @@
 
 ## Getting Started
-Library - Debian : apt install git curl unzip tar cmake python3 build-essential libX11-dev libXect-dev
-        - Arch : pacman -S git curl unzip tar cmake python3 base-devel libx11 libxect
+Library - Debian : apt install git curl unzip tar cmake python3 build-essential libX11-dev libXect-dev libxft-dev
+        - Arch : pacman -S git curl unzip tar cmake python3 base-devel libx11 libxect libxft
 Clone the repo with the `--recurse-submodules` flag
 ```bash
 git clone --recurse-submodules https://github.com/silent1603/TinySDL.git

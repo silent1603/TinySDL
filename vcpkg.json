@@ -3,30 +3,64 @@
   "version-string": "0.1.0",
   "dependencies": [
     "imguizmo",
-    "sdl2",
+    {
+      "name" :"sdl2",
+      "version>=" : "2.0.16#3"
+    },
     {
       "name": "sdl2",
       "default-features": false,
       "features": [ "x11" ],
-      "platform": "linux"
+      "platform": "linux",
+      "version>=" : "2.0.16#3"
+
     },
-    "sdl2-image",
-    "sdl2-mixer",
-    "sdl2-ttf",
-    "catch2",
-    "spdlog",
+    {
+      "name" : "sdl2-image",
+      "version>=": "2.0.5"
+    },
+    {
+      "name" : "sdl2-mixer",
+      "version>=": "2.0.4#16"
+    },
+    {
+       "name": "sdl2-ttf",
+      "version>=":"2.0.15"
+    },
+    {
+      "name": "catch2",
+      "version>=": "2.13.7"
+    },
+    {
+      "name" :"spdlog",
+      "version>=": "1.9.2"
+    },
     {
       "name" : "imgui",
-      "features" : ["docking-experimental","sdl2-binding","opengl3-binding"]
+      "features" : ["docking-experimental","sdl2-binding","opengl3-binding"],
+      "version>=" : "1.85"
     },
-    "glad",
+    {
+      "name" : "glad",
+      "version>=": "0.1.34"
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.10.4"
+    },
     "entt",
     "box2d",
     "lua",
-    "nlohmann-json",
-    "asio",
-    "glm",
-    "stb",
-    "fmt"  
-   ]
+    {
+          "name" : "asio",
+          "version>=" : "1.20.0"
+    },
+    "glm"
+    ,{
+      "name":"stb",
+      "version>=": "2020-09-14"
+    },
+    "fmt"
+  ],
+     "builtin-baseline": "864a477457494da3249813643291e76d443905b9"
 }
