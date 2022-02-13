@@ -1,4 +1,4 @@
 #!/bin/sh
 cd release
-./Tetris
+./TinySDL
 cd ..

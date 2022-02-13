@@ -2,7 +2,10 @@
   "name": "tinysdl",
   "version-string": "0.1.0",
   "dependencies": [
-    "imguizmo",
+    { 
+      "name" :"imguizmo",
+      "version>=" : "1.83"
+    },
     {
       "name" :"sdl2",
       "version>=" : "2.0.16#3"
@@ -48,19 +51,31 @@
       "name": "nlohmann-json",
       "version>=": "3.10.4"
     },
-    "entt",
-    "box2d",
-    "lua",
+    { 
+      "name" : "entt",
+      "version>=" : "3.8.0"
+    },
+    {
+      "name" : "box2d",
+      "version>=" : "2.4.1"
+    
+    },
+    { 
+      "name" : "lua",
+      "version>=" : "5.4.3#3" 
+    },
     {
           "name" : "asio",
           "version>=" : "1.20.0"
     },
-    "glm"
+    { 
+      "name" : "glm",
+      "version>=" : "0.9.9.8"
+    }
     ,{
       "name":"stb",
       "version>=": "2020-09-14"
-    },
-    "fmt"
+    }
   ],
      "builtin-baseline": "864a477457494da3249813643291e76d443905b9"
 }

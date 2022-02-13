@@ -23,7 +23,6 @@ find_package(sdl2-ttf CONFIG REQUIRED)
 find_package(spdlog CONFIG REQUIRED)
 find_package(Lua REQUIRED)
 find_package(glm CONFIG REQUIRED)
-find_package(fmt CONFIG REQUIRED)
 find_path(STB_INCLUDE_DIRS "stb.h")
 #message(STATUS ${SDL2_DIR})
 #message(STATUS ${asio_DIR})
@@ -69,7 +68,6 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main
                                         PRIVATE SDL2::SDL2_ttf 
                                         PRIVATE spdlog::spdlog spdlog::spdlog_header_only 
                                         PRIVATE glm::glm 
-                                        PRIVATE fmt::fmt 
                                         PRIVATE ${LUA_LIBRARIES} 
 )
 
