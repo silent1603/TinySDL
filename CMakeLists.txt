@@ -8,6 +8,7 @@ project(TinySDL)
 set(RELEASE_PATH "${PROJECT_SOURCE_DIR}/release")
 set(DEBUG_PATH "${PROJECT_SOURCE_DIR}/debug")
 
+find_package(assimp CONFIG REQUIRED)
 find_package(SDL2 CONFIG REQUIRED)
 find_package(asio CONFIG REQUIRED)
 find_package(box2d CONFIG REQUIRED)
@@ -69,6 +70,7 @@ target_link_libraries(TinySDL PRIVATE SDL2::SDL2 SDL2::SDL2main
                                         PRIVATE spdlog::spdlog spdlog::spdlog_header_only 
                                         PRIVATE glm::glm 
                                         PRIVATE ${LUA_LIBRARIES} 
+                                        PRIVATE assimp::assimp 
 )
 
 if (MSVC)
