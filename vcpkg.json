@@ -75,6 +75,10 @@
     ,{
       "name":"stb",
       "version>=": "2020-09-14"
+    },
+    {
+      "name" : "assimp",
+      "version>=": "5.0.1"
     }
   ],
      "builtin-baseline": "864a477457494da3249813643291e76d443905b9"
