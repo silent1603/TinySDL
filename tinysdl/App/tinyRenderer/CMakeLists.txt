@@ -32,10 +32,11 @@ target_link_libraries(${ProjectId} PRIVATE SDL2::SDL2 SDL2::SDL2main SDL2::SDL2-
                                         PRIVATE spdlog::spdlog spdlog::spdlog_header_only 
                                         PRIVATE glm::glm 
                                         PRIVATE ${LUA_LIBRARIES}  
+                                        PRIVATE assimp::assimp
 )
 
 if (MSVC)
-    
+  set_target_properties(${ProjectId}  PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY ${RELEASE_PATH})
 elseif(UNIX AND NOT APPLE)
   target_link_libraries(${ProjectId} PRIVATE X11 X11-xcb Xext xcb xkbcommon)
 endif()

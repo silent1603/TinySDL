@@ -1,0 +1,3 @@
+cd release
+./TinySDL
+cd ..

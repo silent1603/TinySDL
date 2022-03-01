@@ -34,7 +34,7 @@ int g_fps{0};
 bool init();
 bool loadMedia();
 void loop();
-void wrirte(std::string text, int x, int y);
+void write(std::string text, int x, int y);
 void update();
 void input();
 void render();
