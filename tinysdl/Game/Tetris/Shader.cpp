@@ -1,1 +1,10 @@
-#include "Shader.h"
+#include "Shader.hpp"
+
+Shader::Shader()
+{
+}
+
+
+Shader::~Shader()
+{
+}
