@@ -1,0 +1,11 @@
+{
+	"block": {
+		"vertex": "#version 330 core \n layout (location = 0) in vec3 vPos; \n void main() {\n gl_Position = vec4(vPos.x,vPos.y,vPos.z,1.0); \n }",
+		"fragment": "#version 330 core \n out vec4 FragColor; \n uniform vec4 ucolor; \n void main() {\n FragColor = vec4(ucolor.r,ucolor.g,ucolor.b,ucolor.a); \n }",
+		"uniform": {
+			"vec4": [
+				"ucolor"
+			]
+		}
+	}
+}
