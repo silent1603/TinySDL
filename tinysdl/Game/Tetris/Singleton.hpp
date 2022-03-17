@@ -61,4 +61,5 @@ namespace Tetris
     std::mutex Singleton<T>::m_mutex;
 
 }
+
 #endif
