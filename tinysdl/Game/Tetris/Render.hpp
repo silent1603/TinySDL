@@ -1,9 +1,14 @@
 #ifndef RENDER_HPP
 #define RENDER_HPP
-namespace Tetris{
-    class Render{
-        protected:
-        private:
-    };
+namespace Tetris {
+	namespace core {
+		namespace platform {
+			class Render {
+			protected:
+			private:
+			};
+		}
+	}
+
 }
 #endif

@@ -1,5 +1,10 @@
 #include "Render.hpp"
 
-namespace{
-    
+namespace Tetris{
+    namespace core {
+        namespace platform {
+            
+
+        }
+    }
 }
